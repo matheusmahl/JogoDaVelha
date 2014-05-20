@@ -9,13 +9,17 @@ int vezes=0;
 int rankJ1=0;
 int rankEmpate=0;
 int rankJ2=0;
+String nomeJ1;
+String nomeJ2;
 Arquivo gravar = new Arquivo();
     public Main() {
         initComponents();
-        lblJogador1.setText(JOptionPane.showInputDialog("Jogador1: ",null));
-        lblJogador2.setText(JOptionPane.showInputDialog("Jogador2: ",null));
-        lblNomeJ1.setText(lblJogador1.getText());
-        lblNomeJ2.setText(lblJogador2.getText());
+        nomeJ1=JOptionPane.showInputDialog("Jogador1: ",null);
+        nomeJ2=JOptionPane.showInputDialog("Jogador2: ",null);
+        lblJogador1.setText(nomeJ1);
+        lblJogador2.setText(nomeJ2);
+        lblNomeJ1.setText(nomeJ1);
+        lblNomeJ2.setText(nomeJ2);
         btnCampo1.setForeground(Color.black);
         btnCampo2.setForeground(Color.black);
         btnCampo3.setForeground(Color.black);
@@ -418,7 +422,7 @@ Arquivo gravar = new Arquivo();
                 btnCampo3.setForeground(Color.red);
                 rankJ1+=1;
                 lblRankJ1.setText(""+rankJ1);
-                gravar.noArquivo(rankJ1,rankEmpate,rankJ2);
+                
             }else
             if((btnCampo1.getText() =="X")&&(btnCampo5.getText() =="X")&&(btnCampo9.getText()=="X")){            
                 JOptionPane.showMessageDialog(null, lblJogador1.getText()+" Ganhou!");
@@ -558,7 +562,8 @@ Arquivo gravar = new Arquivo();
                 JOptionPane.showMessageDialog(null, "Empate!");
                 rankEmpate+=1;
                 lblRankEmpates.setText(""+rankEmpate);
-            }                    
+            }
+            gravar.noArquivo(rankJ1,rankJ2,nomeJ1,nomeJ2);
     }
     
     
