@@ -3,6 +3,8 @@
 
 package br.edu.unoesc.jdavelha.tela;
 import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import javax.swing.JOptionPane;
 
@@ -19,7 +21,19 @@ public class Arquivo {
             wr.close();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Não foi possivel gravar no arquivo!");
-        }
+        }        
+    }
+    
+    public void lerArquivo(){
+         try {
+         BufferedReader leitura = new BufferedReader(new FileReader(ARQUIVO));
+            String str;
+            while (leitura.ready()) {
+                str = leitura.readLine();
+            }
+            leitura.close();
+    } catch (Exception e) {
         
+    }
     }
 }
