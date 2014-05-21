@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class Arquivo {
     private final String ARQUIVO = "C:/Dados/rankingJogo.txt";
     
-    public void noArquivo(int rankJ1,int rankJ2,String nomeJ1,String nomeJ2){
+    public void gravarArquivo(int rankJ1,int rankJ2,String nomeJ1,String nomeJ2){
         try{
             BufferedWriter wr = new BufferedWriter(new FileWriter(ARQUIVO));
             String rank = nomeJ1+"|"+rankJ1+"|"+nomeJ2+"|"+rankJ2;
@@ -30,6 +30,7 @@ public class Arquivo {
             String str;
             while (leitura.ready()) {
                 str = leitura.readLine();
+                JOptionPane.showMessageDialog(null, str);
             }
             leitura.close();
     } catch (Exception e) {
