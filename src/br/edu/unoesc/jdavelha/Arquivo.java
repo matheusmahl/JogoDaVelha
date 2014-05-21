@@ -1,7 +1,7 @@
 
 
 
-package br.edu.unoesc.jdavelha.tela;
+package br.edu.unoesc.jdavelha;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
