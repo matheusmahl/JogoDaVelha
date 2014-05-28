@@ -2,6 +2,7 @@ package br.edu.unoesc.jdavelha;
 
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -9,7 +10,9 @@ import javax.swing.JOptionPane;
 
 public class Arquivo {
 
-    private final String ARQUIVO = "C:/Dados/rankingJogo.txt";
+    private final String ARQUIVO = "C:/Jogadores.txt";
+    
+    File arquivo = new File(ARQUIVO);
 
     public void gravarArquivo(ArrayList<Jogadores> jogador) {
         try {
@@ -29,14 +32,16 @@ public class Arquivo {
         try {
             BufferedReader leitura = new BufferedReader(new FileReader(ARQUIVO));
             ArrayList<Jogadores> listaLida = new ArrayList();
-            for (int i = 0; i < listaLida.size(); i++) {
-                listaLida[i]=
-                
+            String linha=null;
+            while((linha=leitura.readLine())!=null){
+                Jogadores player = new Jogadores();
+                player.setJogador(linha);
+                listaLida.add(player); 
             }
-            return (listaLida);
             leitura.close();
+            return (listaLida); 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel ler do arquivo!");
+            throw new RuntimeException("Não foi possivel ler do arquivo!");
         }
     }
 }

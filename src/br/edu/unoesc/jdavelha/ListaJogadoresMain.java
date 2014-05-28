@@ -17,7 +17,8 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
 
     public ListaJogadoresMain() {
         initComponents();
-        
+        player=arquivo.lerArquivo();
+        atualizarLista();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,7 +39,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lstJogadores.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        lstJogadores.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jScrollPane1.setViewportView(lstJogadores);
 
         btnJogar.setText("Jogar");
@@ -65,6 +66,8 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
                 btnAdicionarJogadorActionPerformed(evt);
             }
         });
+
+        txfNomeJogador.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         btnDeletarJogador.setText("Deletar Jogador");
         btnDeletarJogador.addActionListener(new java.awt.event.ActionListener() {
@@ -223,6 +226,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
 
     
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

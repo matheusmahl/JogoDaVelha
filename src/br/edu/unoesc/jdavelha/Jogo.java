@@ -2,7 +2,6 @@
 
 package br.edu.unoesc.jdavelha;
 import java.awt.Color;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 public class Jogo extends javax.swing.JFrame {
 boolean vez= false;
@@ -463,7 +462,7 @@ Arquivo rank = new Arquivo();
     }
     public void teste(){
         vezes+=1;
-            if((btnCampo1.getText() =="X")&&(btnCampo2.getText() =="X")&&(btnCampo3.getText()=="X")){
+            if(("X".equals(btnCampo1.getText()))&&("X".equals(btnCampo2.getText()))&&("X".equals(btnCampo3.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador1.getText()+" Ganhou!");
                 bloquear();
                 btnCampo1.setForeground(Color.red);
@@ -473,7 +472,7 @@ Arquivo rank = new Arquivo();
                 lblRankJ1.setText(""+rankJ1);
                 
             }else
-            if((btnCampo1.getText() =="X")&&(btnCampo5.getText() =="X")&&(btnCampo9.getText()=="X")){            
+            if(("X".equals(btnCampo1.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo9.getText()))){            
                 JOptionPane.showMessageDialog(null, lblJogador1.getText()+" Ganhou!");
                 bloquear();
                 btnCampo1.setForeground(Color.red);
@@ -491,7 +490,7 @@ Arquivo rank = new Arquivo();
                 rankJ1+=1;
                 lblRankJ1.setText(""+rankJ1);
             }else
-            if((btnCampo2.getText() =="X")&&(btnCampo5.getText() =="X")&&(btnCampo8.getText()=="X")){
+            if(("X".equals(btnCampo2.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo8.getText()))){
                 JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
                 bloquear();
                 btnCampo2.setForeground(Color.red);
@@ -500,7 +499,7 @@ Arquivo rank = new Arquivo();
                 rankJ1+=1;
                 lblRankJ1.setText(""+rankJ1);
             }else
-            if((btnCampo4.getText() =="X")&&(btnCampo5.getText() =="X")&&(btnCampo6.getText()=="X")){
+            if(("X".equals(btnCampo4.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo6.getText()))){
                 JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
                 bloquear();
                 btnCampo4.setForeground(Color.red);
@@ -509,7 +508,7 @@ Arquivo rank = new Arquivo();
                 rankJ1+=1;
                 lblRankJ1.setText(""+rankJ1);
             }else
-            if((btnCampo7.getText() =="X")&&(btnCampo5.getText() =="X")&&(btnCampo3.getText()=="X")){
+            if(("X".equals(btnCampo7.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo3.getText()))){
                 JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
                 bloquear();
                 btnCampo7.setForeground(Color.red);
@@ -518,7 +517,7 @@ Arquivo rank = new Arquivo();
                 rankJ1+=1;
                 lblRankJ1.setText(""+rankJ1);
             }else
-            if((btnCampo7.getText() =="X")&&(btnCampo8.getText() =="X")&&(btnCampo9.getText()=="X")){
+            if(("X".equals(btnCampo7.getText()))&&("X".equals(btnCampo8.getText()))&&("X".equals(btnCampo9.getText()))){
                 JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
                 bloquear();
                 btnCampo7.setForeground(Color.red);
@@ -527,7 +526,7 @@ Arquivo rank = new Arquivo();
                 rankJ1+=1;
                 lblRankJ1.setText(""+rankJ1);
             }else
-            if((btnCampo3.getText() =="X")&&(btnCampo6.getText() =="X")&&(btnCampo9.getText()=="X")){
+            if(("X".equals(btnCampo3.getText()))&&("X".equals(btnCampo6.getText()))&&("X".equals(btnCampo9.getText()))){
                 JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
                 bloquear();
                 btnCampo3.setForeground(Color.red);
@@ -537,7 +536,7 @@ Arquivo rank = new Arquivo();
                 lblRankJ1.setText(""+rankJ1);
             }else
             
-            if((btnCampo1.getText() =="O")&&(btnCampo2.getText() =="O")&&(btnCampo3.getText()=="O")){
+            if(("O".equals(btnCampo1.getText()))&&("O".equals(btnCampo2.getText()))&&("O".equals(btnCampo3.getText()))){
                 JOptionPane.showMessageDialog(null,  lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo1.setForeground(Color.red);
@@ -546,14 +545,14 @@ Arquivo rank = new Arquivo();
                 rankJ2+=1;
                 lblRankJ2.setText(""+rankJ2);
             }else
-            if((btnCampo1.getText() =="O")&&(btnCampo5.getText() =="O")&&(btnCampo9.getText()=="O")){
+            if(("O".equals(btnCampo1.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo9.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo1.setForeground(Color.red);
                 btnCampo5.setForeground(Color.red);
                 btnCampo9.setForeground(Color.red);
             }else
-            if((btnCampo1.getText() =="O")&&(btnCampo4.getText() =="O")&&(btnCampo7.getText()=="O")){
+            if(("O".equals(btnCampo1.getText()))&&("O".equals(btnCampo4.getText()))&&("O".equals(btnCampo7.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo1.setForeground(Color.red);
@@ -562,7 +561,7 @@ Arquivo rank = new Arquivo();
                 rankJ2+=1;
                 lblRankJ2.setText(""+rankJ2);
             }else
-            if((btnCampo2.getText() =="O")&&(btnCampo5.getText() =="O")&&(btnCampo8.getText()=="O")){
+            if(("O".equals(btnCampo2.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo8.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo2.setForeground(Color.red);
@@ -571,7 +570,7 @@ Arquivo rank = new Arquivo();
                 rankJ2+=1;
                 lblRankJ2.setText(""+rankJ2);
             }else
-            if((btnCampo4.getText() =="O")&&(btnCampo5.getText() =="O")&&(btnCampo6.getText()=="O")){
+            if(("O".equals(btnCampo4.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo6.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo4.setForeground(Color.red);
@@ -580,7 +579,7 @@ Arquivo rank = new Arquivo();
                 rankJ2+=1;
                 lblRankJ2.setText(""+rankJ2);
             }else
-            if((btnCampo7.getText() =="O")&&(btnCampo5.getText() =="O")&&(btnCampo3.getText()=="O")){
+            if(("O".equals(btnCampo7.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo3.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo7.setForeground(Color.red);
@@ -589,7 +588,7 @@ Arquivo rank = new Arquivo();
                 rankJ2+=1;
                 lblRankJ2.setText(""+rankJ2);
             }else
-            if((btnCampo7.getText() =="O")&&(btnCampo8.getText() =="O")&&(btnCampo9.getText()=="O")){
+            if(("O".equals(btnCampo7.getText()))&&("O".equals(btnCampo8.getText()))&&("O".equals(btnCampo9.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo7.setForeground(Color.red);
@@ -598,7 +597,7 @@ Arquivo rank = new Arquivo();
                 rankJ2+=1;
                 lblRankJ2.setText(""+rankJ2);
             }else
-            if((btnCampo3.getText() =="O")&&(btnCampo6.getText() =="O")&&(btnCampo9.getText()=="O")){
+            if(("O".equals(btnCampo3.getText()))&&("O".equals(btnCampo6.getText()))&&("O".equals(btnCampo9.getText()))){
                 JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
                 bloquear();
                 btnCampo3.setForeground(Color.red);
