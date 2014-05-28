@@ -10,12 +10,13 @@ import javax.swing.JOptionPane;
 
 public class Arquivo {
 
-    private final String ARQUIVO = "C:/Jogadores.txt";
-    
-    File arquivo = new File(ARQUIVO);
+    private final String ARQUIVO = "C:/Dados/Jogadores.txt";
+    File file = new File(ARQUIVO);
 
     public void gravarArquivo(ArrayList<Jogadores> jogador) {
         try {
+            if(!file.exists())
+                file.createNewFile();
             BufferedWriter wr = new BufferedWriter(new FileWriter(ARQUIVO));
             for (int i = 0; i < jogador.size(); i++) {
                 String linha = jogador.get(i).getJogador();
@@ -30,7 +31,10 @@ public class Arquivo {
 
     public ArrayList<Jogadores> lerArquivo() {
         try {
-            BufferedReader leitura = new BufferedReader(new FileReader(ARQUIVO));
+            if(!file.exists())
+                file.createNewFile();
+            BufferedReader leitura;
+            leitura = new BufferedReader(new FileReader(ARQUIVO));
             ArrayList<Jogadores> listaLida = new ArrayList();
             String linha=null;
             while((linha=leitura.readLine())!=null){
@@ -39,7 +43,7 @@ public class Arquivo {
                 listaLida.add(player); 
             }
             leitura.close();
-            return (listaLida); 
+            return (listaLida);   
         } catch (Exception e) {
             throw new RuntimeException("Não foi possivel ler do arquivo!");
         }

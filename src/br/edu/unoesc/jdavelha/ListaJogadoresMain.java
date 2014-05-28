@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package br.edu.unoesc.jdavelha;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -42,6 +36,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
         lstJogadores.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jScrollPane1.setViewportView(lstJogadores);
 
+        btnJogar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnJogar.setText("Jogar");
         btnJogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +44,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             }
         });
 
+        btnSelecionarJogador1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnSelecionarJogador1.setText("Selecionar Jogador 1");
         btnSelecionarJogador1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,10 +52,17 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Jogador 1:");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Jogador 2:");
 
+        lblJogadorSelecionado1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        lblJogadorSelecionado2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        btnAdicionarJogador.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnAdicionarJogador.setText("Adicionar Jogador");
         btnAdicionarJogador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,8 +70,9 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             }
         });
 
-        txfNomeJogador.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txfNomeJogador.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        btnDeletarJogador.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnDeletarJogador.setText("Deletar Jogador");
         btnDeletarJogador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +80,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             }
         });
 
+        btnSelecionarJogador2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnSelecionarJogador2.setText("Selecionar Jogador 2");
         btnSelecionarJogador2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,22 +101,22 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
                                 .addComponent(btnJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblJogadorSelecionado2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblJogadorSelecionado2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblJogadorSelecionado1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 83, Short.MAX_VALUE))
+                                        .addComponent(lblJogadorSelecionado1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 57, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnSelecionarJogador1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDeletarJogador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelecionarJogador2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))))
+                            .addComponent(btnSelecionarJogador2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAdicionarJogador)
@@ -188,13 +193,15 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
         try{
             if(txfNomeJogador.getText().isEmpty())
                 throw new Exception("Informe um jogador!");
+            if(txfNomeJogador.getText().length()>12)
+                throw new Exception("Nome deve ter no máximo 12 caracteres!");
+            else if(txfNomeJogador.getText().length()<4)
+                throw new Exception("Nome deve ter no mínimo 4 caracteres!");
             Jogadores jogador = new Jogadores();
             jogador.setJogador(txfNomeJogador.getText());
             player.add(jogador);
             atualizarLista();
-            arquivo.gravarArquivo(player);
-            
-            
+            arquivo.gravarArquivo(player); 
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.getMessage());
         }
@@ -252,6 +259,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ListaJogadoresMain().setVisible(true);
             }

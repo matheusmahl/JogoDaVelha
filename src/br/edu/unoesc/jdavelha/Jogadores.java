@@ -1,8 +1,4 @@
-
-
-
 package br.edu.unoesc.jdavelha;
-
 
 public class Jogadores{
     
