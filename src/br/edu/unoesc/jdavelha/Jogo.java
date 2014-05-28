@@ -2,8 +2,9 @@
 
 package br.edu.unoesc.jdavelha;
 import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-public class Main extends javax.swing.JFrame {
+public class Jogo extends javax.swing.JFrame {
 boolean vez= false;
 int vezes=0;
 int rankJ1=0;
@@ -12,10 +13,10 @@ int rankJ2=0;
 String nomeJ1;
 String nomeJ2;
 Arquivo rank = new Arquivo();
-    public Main() {
+    public Jogo(String nome1,String nome2) {
         initComponents();
-        nomeJ1=JOptionPane.showInputDialog("Jogador1: ",null);
-        nomeJ2=JOptionPane.showInputDialog("Jogador2: ",null);
+        nomeJ1=nome1;
+        nomeJ2=nome2;     
         lblJogador1.setText(nomeJ1);
         lblJogador2.setText(nomeJ2);
         lblNomeJ1.setText(nomeJ1);
@@ -37,6 +38,9 @@ Arquivo rank = new Arquivo();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
+        jFrame3 = new javax.swing.JFrame();
         btnCampo2 = new javax.swing.JButton();
         btnCampo3 = new javax.swing.JButton();
         btnCampo4 = new javax.swing.JButton();
@@ -61,8 +65,40 @@ Arquivo rank = new Arquivo();
         btnLimparRanking = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnRanking = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame3Layout = new javax.swing.GroupLayout(jFrame3.getContentPane());
+        jFrame3.getContentPane().setLayout(jFrame3Layout);
+        jFrame3Layout.setHorizontalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame3Layout.setVerticalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,14 +225,6 @@ Arquivo rank = new Arquivo();
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText(":  O");
 
-        btnRanking.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnRanking.setText("Ranking");
-        btnRanking.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRankingActionPerformed(evt);
-            }
-        });
-
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,9 +301,7 @@ Arquivo rank = new Arquivo();
                         .addComponent(lblNomeJ2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLimparRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRanking)
-                .addContainerGap())
+                .addGap(107, 107, 107))
             .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
@@ -329,9 +355,7 @@ Arquivo rank = new Arquivo();
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblRankEmpates)
                                 .addComponent(lblRankJ2))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnRanking)
-                        .addComponent(btnLimparRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnLimparRanking, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -375,9 +399,9 @@ Arquivo rank = new Arquivo();
     }//GEN-LAST:event_btnCampo1ActionPerformed
 
     private void btnCampo5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCampo5ActionPerformed
-      btnCampo5.setText(vezDoJogador());
-      btnCampo5.setEnabled(false);
-      teste();
+        btnCampo5.setText(vezDoJogador());
+        btnCampo5.setEnabled(false);
+        teste();
     }//GEN-LAST:event_btnCampo5ActionPerformed
 
     private void btnCampo6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCampo6ActionPerformed
@@ -387,9 +411,9 @@ Arquivo rank = new Arquivo();
     }//GEN-LAST:event_btnCampo6ActionPerformed
 
     private void btnCampo9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCampo9ActionPerformed
-       btnCampo9.setText(vezDoJogador());
-       btnCampo9.setEnabled(false);
-       teste();
+        btnCampo9.setText(vezDoJogador());
+        btnCampo9.setEnabled(false);
+        teste();
     }//GEN-LAST:event_btnCampo9ActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -404,11 +428,6 @@ Arquivo rank = new Arquivo();
         rankEmpate=0;
         lblRankEmpates.setText(""+rankEmpate);
     }//GEN-LAST:event_btnLimparRankingActionPerformed
-
-    private void btnRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRankingActionPerformed
-        rank.lerArquivo();
-        
-    }//GEN-LAST:event_btnRankingActionPerformed
 
     
     public static void main(String args[]) {
@@ -425,20 +444,20 @@ Arquivo rank = new Arquivo();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                //new Jogo().setVisible(true);
             }
         });
     }
@@ -592,8 +611,7 @@ Arquivo rank = new Arquivo();
                 JOptionPane.showMessageDialog(null, "Empate!");
                 rankEmpate+=1;
                 lblRankEmpates.setText(""+rankEmpate);
-            }
-            rank.gravarArquivo(rankJ1,rankJ2,nomeJ1,nomeJ2);
+            }            
     }
     
     
@@ -668,7 +686,9 @@ Arquivo rank = new Arquivo();
     private javax.swing.JButton btnCampo9;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnLimparRanking;
-    private javax.swing.JButton btnRanking;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
+    private javax.swing.JFrame jFrame3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
