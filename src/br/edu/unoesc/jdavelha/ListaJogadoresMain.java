@@ -1,19 +1,21 @@
 package br.edu.unoesc.jdavelha;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class ListaJogadoresMain extends javax.swing.JFrame {
-    
+
     private ArrayList<Jogadores> player = new ArrayList();
     Arquivo arquivo = new Arquivo();
-    
 
     public ListaJogadoresMain() {
         initComponents();
-        player=arquivo.lerArquivo();
+        arquivo.criarDiretorio();
+        player = arquivo.lerArquivo();
         atualizarLista();
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -160,80 +162,87 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJogarActionPerformed
-        try{
-            if(lblJogadorSelecionado1.getText().isEmpty())
+        try {
+            if (lblJogadorSelecionado1.getText().isEmpty()) {
                 throw new Exception("Jogador 1 não selecionado!");
-            if(lblJogadorSelecionado2.getText().isEmpty())
+            }
+            if (lblJogadorSelecionado2.getText().isEmpty()) {
                 throw new Exception("Jogador 2 não selecionado!");
-            
-        Jogo jogar = new Jogo(lblJogadorSelecionado1.getText(),lblJogadorSelecionado2.getText());
-        jogar.setVisible(true);
-        this.setVisible(false);
-        
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, ""+e.getMessage());
+            }
+
+            Jogo jogar = new Jogo(lblJogadorSelecionado1.getText(), lblJogadorSelecionado2.getText());
+            jogar.setVisible(true);
+            this.setVisible(false);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "" + e.getMessage());
         }
     }//GEN-LAST:event_btnJogarActionPerformed
 
     private void btnSelecionarJogador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarJogador1ActionPerformed
-        try{
-            if(lstJogadores.getSelectedIndex()>-1){
+        try {
+            if (lstJogadores.getSelectedIndex() > -1) {
                 Jogadores jogador = player.get(lstJogadores.getSelectedIndex());
                 lblJogadorSelecionado1.setText(jogador.getJogador());
-            }  else throw new Exception("Selecione um jogador na lista!");
-            
-            
-        }catch(Exception e){
+            } else {
+                throw new Exception("Selecione um jogador na lista!");
+            }
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnSelecionarJogador1ActionPerformed
 
     private void btnAdicionarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarJogadorActionPerformed
-        
-        try{
-            if(txfNomeJogador.getText().isEmpty())
+
+        try {
+            if (txfNomeJogador.getText().isEmpty()) {
                 throw new Exception("Informe um jogador!");
-            if(txfNomeJogador.getText().length()>12)
+            }
+            if (txfNomeJogador.getText().length() > 12) {
                 throw new Exception("Nome deve ter no máximo 12 caracteres!");
-            else if(txfNomeJogador.getText().length()<4)
+            } else if (txfNomeJogador.getText().length() < 4) {
                 throw new Exception("Nome deve ter no mínimo 4 caracteres!");
+            }
             Jogadores jogador = new Jogadores();
             jogador.setJogador(txfNomeJogador.getText());
             player.add(jogador);
             atualizarLista();
-            arquivo.gravarArquivo(player); 
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            arquivo.gravarArquivo(player);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnAdicionarJogadorActionPerformed
 
     private void btnSelecionarJogador2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarJogador2ActionPerformed
-        try{
-            if(lstJogadores.getSelectedIndex()>-1){
+        try {
+            if (lstJogadores.getSelectedIndex() > -1) {
                 Jogadores jogador = player.get(lstJogadores.getSelectedIndex());
                 lblJogadorSelecionado2.setText(jogador.getJogador());
-            }  else throw new Exception("Selecione um jogador na lista!");
-            
-            
-        }catch(Exception e){
+            } else {
+                throw new Exception("Selecione um jogador na lista!");
+            }
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnSelecionarJogador2ActionPerformed
 
     private void btnDeletarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarJogadorActionPerformed
-        try{
-            if(lstJogadores.getSelectedIndex()>-1){
+        try {
+            if (lstJogadores.getSelectedIndex() > -1) {
                 player.remove(lstJogadores.getSelectedIndex());
                 atualizarLista();
-            }else throw new Exception("Selecione um jogador na lista!");
-        }catch(Exception e){
+            } else {
+                throw new Exception("Selecione um jogador na lista!");
+            }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnDeletarJogadorActionPerformed
 
-    
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -264,18 +273,19 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
                 new ListaJogadoresMain().setVisible(true);
             }
         });
-        
+
     }
-    public void atualizarLista(){
-        String[] lista =new String[player.size()];
-        for(int i=0;i<player.size();i++){
-            lista[i]=player.get(i).getJogador();
+
+    //Método para atualizar a lista de jogadores
+    public void atualizarLista() {
+        String[] lista = new String[player.size()];
+        for (int i = 0; i < player.size(); i++) {
+            lista[i] = player.get(i).getJogador();
         }
         lstJogadores.setListData(lista);
         arquivo.gravarArquivo(player);
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarJogador;

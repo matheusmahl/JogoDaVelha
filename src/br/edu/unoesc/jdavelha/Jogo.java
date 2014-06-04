@@ -1,19 +1,25 @@
 package br.edu.unoesc.jdavelha;
+
 import java.awt.Color;
 import javax.swing.JOptionPane;
+
 public class Jogo extends javax.swing.JFrame {
-boolean vez= false;
-int vezes=0;
-int rankJ1=0;
-int rankEmpate=0;
-int rankJ2=0;
-String nomeJ1;
-String nomeJ2;
-Arquivo rank = new Arquivo();
-    public Jogo(String nome1,String nome2) {
+
+    //Variaveis para serem usadas em todos os métodos
+    boolean vez = false;
+    int vezes = 0;
+    int rankJ1 = 0;
+    int rankEmpate = 0;
+    int rankJ2 = 0;
+    String nomeJ1;
+    String nomeJ2;
+    Arquivo rank = new Arquivo();
+
+    //Inicio da tela de jogo
+    public Jogo(String nome1, String nome2) {
         initComponents();
-        nomeJ1=nome1;
-        nomeJ2=nome2;     
+        nomeJ1 = nome1;
+        nomeJ2 = nome2;
         lblJogador1.setText(nomeJ1);
         lblJogador2.setText(nomeJ2);
         lblNomeJ1.setText(nomeJ1);
@@ -30,7 +36,6 @@ Arquivo rank = new Arquivo();
         lblVezJogador.setText(nomeJ1);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -356,7 +361,7 @@ Arquivo rank = new Arquivo();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Botões de ação do jogo
     private void btnCampo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCampo2ActionPerformed
         btnCampo2.setText(vezDoJogador());
         btnCampo2.setEnabled(false);
@@ -416,17 +421,16 @@ Arquivo rank = new Arquivo();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnLimparRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparRankingActionPerformed
-        rankJ1=0;
-        lblRankJ1.setText(""+rankJ1);
-        rankJ2=0;
-        lblRankJ2.setText(""+rankJ2);
-        rankEmpate=0;
-        lblRankEmpates.setText(""+rankEmpate);
+        rankJ1 = 0;
+        lblRankJ1.setText("" + rankJ1);
+        rankJ2 = 0;
+        lblRankJ2.setText("" + rankJ2);
+        rankEmpate = 0;
+        lblRankEmpates.setText("" + rankEmpate);
     }//GEN-LAST:event_btnLimparRankingActionPerformed
 
-    
     public static void main(String args[]) {
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -449,185 +453,174 @@ Arquivo rank = new Arquivo();
         }
         //</editor-fold>
     }
-    public void teste(){
-        vezes+=1;
-            if(("X".equals(btnCampo1.getText()))&&("X".equals(btnCampo2.getText()))&&("X".equals(btnCampo3.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo1.setForeground(Color.red);
-                btnCampo2.setForeground(Color.red);
-                btnCampo3.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-                
-            }else
-            if(("X".equals(btnCampo1.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo9.getText()))){            
-                JOptionPane.showMessageDialog(null, lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo1.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo9.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-            }else
-            if(("X".equals(btnCampo1.getText()))&&("X".equals(btnCampo4.getText()))&&("X".equals(btnCampo7.getText()))){
-                JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo1.setForeground(Color.red);
-                btnCampo4.setForeground(Color.red);
-                btnCampo7.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-            }else
-            if(("X".equals(btnCampo2.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo8.getText()))){
-                JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo2.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo8.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-            }else
-            if(("X".equals(btnCampo4.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo6.getText()))){
-                JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo4.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo6.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-            }else
-            if(("X".equals(btnCampo7.getText()))&&("X".equals(btnCampo5.getText()))&&("X".equals(btnCampo3.getText()))){
-                JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo7.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo3.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-            }else
-            if(("X".equals(btnCampo7.getText()))&&("X".equals(btnCampo8.getText()))&&("X".equals(btnCampo9.getText()))){
-                JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo7.setForeground(Color.red);
-                btnCampo8.setForeground(Color.red);
-                btnCampo9.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-            }else
-            if(("X".equals(btnCampo3.getText()))&&("X".equals(btnCampo6.getText()))&&("X".equals(btnCampo9.getText()))){
-                JOptionPane.showMessageDialog(null,  lblJogador1.getText()+" Ganhou!");
-                bloquear();
-                btnCampo3.setForeground(Color.red);
-                btnCampo6.setForeground(Color.red);
-                btnCampo9.setForeground(Color.red);
-                rankJ1+=1;
-                lblRankJ1.setText(""+rankJ1);
-            }else
-            
-            if(("O".equals(btnCampo1.getText()))&&("O".equals(btnCampo2.getText()))&&("O".equals(btnCampo3.getText()))){
-                JOptionPane.showMessageDialog(null,  lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo1.setForeground(Color.red);
-                btnCampo2.setForeground(Color.red);
-                btnCampo3.setForeground(Color.red);
-                rankJ2+=1;
-                lblRankJ2.setText(""+rankJ2);
-            }else
-            if(("O".equals(btnCampo1.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo9.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo1.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo9.setForeground(Color.red);
-            }else
-            if(("O".equals(btnCampo1.getText()))&&("O".equals(btnCampo4.getText()))&&("O".equals(btnCampo7.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo1.setForeground(Color.red);
-                btnCampo4.setForeground(Color.red);
-                btnCampo7.setForeground(Color.red);
-                rankJ2+=1;
-                lblRankJ2.setText(""+rankJ2);
-            }else
-            if(("O".equals(btnCampo2.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo8.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo2.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo8.setForeground(Color.red);
-                rankJ2+=1;
-                lblRankJ2.setText(""+rankJ2);
-            }else
-            if(("O".equals(btnCampo4.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo6.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo4.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo6.setForeground(Color.red);
-                rankJ2+=1;
-                lblRankJ2.setText(""+rankJ2);
-            }else
-            if(("O".equals(btnCampo7.getText()))&&("O".equals(btnCampo5.getText()))&&("O".equals(btnCampo3.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo7.setForeground(Color.red);
-                btnCampo5.setForeground(Color.red);
-                btnCampo3.setForeground(Color.red);
-                rankJ2+=1;
-                lblRankJ2.setText(""+rankJ2);
-            }else
-            if(("O".equals(btnCampo7.getText()))&&("O".equals(btnCampo8.getText()))&&("O".equals(btnCampo9.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo7.setForeground(Color.red);
-                btnCampo8.setForeground(Color.red);
-                btnCampo9.setForeground(Color.red);
-                rankJ2+=1;
-                lblRankJ2.setText(""+rankJ2);
-            }else
-            if(("O".equals(btnCampo3.getText()))&&("O".equals(btnCampo6.getText()))&&("O".equals(btnCampo9.getText()))){
-                JOptionPane.showMessageDialog(null, lblJogador2.getText()+" Ganhou!");
-                bloquear();
-                btnCampo3.setForeground(Color.red);
-                btnCampo6.setForeground(Color.red);
-                btnCampo9.setForeground(Color.red);
-                rankJ2+=1;
-                lblRankJ2.setText(""+rankJ2);
-            }else
-                if(vezes==9){
-                JOptionPane.showMessageDialog(null, "Empate!");
-                rankEmpate+=1;
-                lblRankEmpates.setText(""+rankEmpate);
-            }            
+
+    //Método para testar o jogador que ganha
+    public void teste() {
+        vezes += 1;
+        if (("X".equals(btnCampo1.getText())) && ("X".equals(btnCampo2.getText())) && ("X".equals(btnCampo3.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo1.setForeground(Color.red);
+            btnCampo2.setForeground(Color.red);
+            btnCampo3.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+
+        } else if (("X".equals(btnCampo1.getText())) && ("X".equals(btnCampo5.getText())) && ("X".equals(btnCampo9.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo1.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo9.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+        } else if (("X".equals(btnCampo1.getText())) && ("X".equals(btnCampo4.getText())) && ("X".equals(btnCampo7.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo1.setForeground(Color.red);
+            btnCampo4.setForeground(Color.red);
+            btnCampo7.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+        } else if (("X".equals(btnCampo2.getText())) && ("X".equals(btnCampo5.getText())) && ("X".equals(btnCampo8.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo2.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo8.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+        } else if (("X".equals(btnCampo4.getText())) && ("X".equals(btnCampo5.getText())) && ("X".equals(btnCampo6.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo4.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo6.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+        } else if (("X".equals(btnCampo7.getText())) && ("X".equals(btnCampo5.getText())) && ("X".equals(btnCampo3.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo7.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo3.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+        } else if (("X".equals(btnCampo7.getText())) && ("X".equals(btnCampo8.getText())) && ("X".equals(btnCampo9.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo7.setForeground(Color.red);
+            btnCampo8.setForeground(Color.red);
+            btnCampo9.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+        } else if (("X".equals(btnCampo3.getText())) && ("X".equals(btnCampo6.getText())) && ("X".equals(btnCampo9.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador1.getText() + " Ganhou!");
+            bloquear();
+            btnCampo3.setForeground(Color.red);
+            btnCampo6.setForeground(Color.red);
+            btnCampo9.setForeground(Color.red);
+            rankJ1 += 1;
+            lblRankJ1.setText("" + rankJ1);
+        } else if (("O".equals(btnCampo1.getText())) && ("O".equals(btnCampo2.getText())) && ("O".equals(btnCampo3.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo1.setForeground(Color.red);
+            btnCampo2.setForeground(Color.red);
+            btnCampo3.setForeground(Color.red);
+            rankJ2 += 1;
+            lblRankJ2.setText("" + rankJ2);
+        } else if (("O".equals(btnCampo1.getText())) && ("O".equals(btnCampo5.getText())) && ("O".equals(btnCampo9.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo1.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo9.setForeground(Color.red);
+        } else if (("O".equals(btnCampo1.getText())) && ("O".equals(btnCampo4.getText())) && ("O".equals(btnCampo7.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo1.setForeground(Color.red);
+            btnCampo4.setForeground(Color.red);
+            btnCampo7.setForeground(Color.red);
+            rankJ2 += 1;
+            lblRankJ2.setText("" + rankJ2);
+        } else if (("O".equals(btnCampo2.getText())) && ("O".equals(btnCampo5.getText())) && ("O".equals(btnCampo8.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo2.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo8.setForeground(Color.red);
+            rankJ2 += 1;
+            lblRankJ2.setText("" + rankJ2);
+        } else if (("O".equals(btnCampo4.getText())) && ("O".equals(btnCampo5.getText())) && ("O".equals(btnCampo6.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo4.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo6.setForeground(Color.red);
+            rankJ2 += 1;
+            lblRankJ2.setText("" + rankJ2);
+        } else if (("O".equals(btnCampo7.getText())) && ("O".equals(btnCampo5.getText())) && ("O".equals(btnCampo3.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo7.setForeground(Color.red);
+            btnCampo5.setForeground(Color.red);
+            btnCampo3.setForeground(Color.red);
+            rankJ2 += 1;
+            lblRankJ2.setText("" + rankJ2);
+        } else if (("O".equals(btnCampo7.getText())) && ("O".equals(btnCampo8.getText())) && ("O".equals(btnCampo9.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo7.setForeground(Color.red);
+            btnCampo8.setForeground(Color.red);
+            btnCampo9.setForeground(Color.red);
+            rankJ2 += 1;
+            lblRankJ2.setText("" + rankJ2);
+        } else if (("O".equals(btnCampo3.getText())) && ("O".equals(btnCampo6.getText())) && ("O".equals(btnCampo9.getText()))) {
+            JOptionPane.showMessageDialog(null, lblJogador2.getText() + " Ganhou!");
+            bloquear();
+            btnCampo3.setForeground(Color.red);
+            btnCampo6.setForeground(Color.red);
+            btnCampo9.setForeground(Color.red);
+            rankJ2 += 1;
+            lblRankJ2.setText("" + rankJ2);
+        } else if (vezes == 9) {
+            JOptionPane.showMessageDialog(null, "Empate!");
+            rankEmpate += 1;
+            lblRankEmpates.setText("" + rankEmpate);
+        }
     }
-    
-    
-    public String vezDoJogador(){
+
+    //Método para definir qual jogador irá jogar
+    public String vezDoJogador() {
         String XO;
-        if(vez){
-            vez=false;
-            XO="O";
+        if (vez) {
+            vez = false;
+            XO = "O";
             lblVezJogador.setText(nomeJ1);
-        }else{
-            vez=true;
-            XO="X";
+        } else {
+            vez = true;
+            XO = "X";
             lblVezJogador.setText(nomeJ2);
         }
-        return XO;  
+        return XO;
     }
-    public void bloquear(){  
-        btnCampo1.setEnabled(false);       
-        btnCampo2.setEnabled(false);   
-        btnCampo3.setEnabled(false);      
-        btnCampo4.setEnabled(false);       
-        btnCampo5.setEnabled(false);       
-        btnCampo6.setEnabled(false);        
+
+    //Método para bloquear o campo após uma vitória
+    public void bloquear() {
+        btnCampo1.setEnabled(false);
+        btnCampo2.setEnabled(false);
+        btnCampo3.setEnabled(false);
+        btnCampo4.setEnabled(false);
+        btnCampo5.setEnabled(false);
+        btnCampo6.setEnabled(false);
         btnCampo7.setEnabled(false);
         btnCampo8.setEnabled(false);
-        btnCampo9.setEnabled(false); 
+        btnCampo9.setEnabled(false);
     }
-    public void limparTabuleiro(){
+
+    //Método de limpar o tabuleiro para iniciar um novo jogo 
+    public void limparTabuleiro() {
         btnCampo1.setText(null);
         btnCampo1.setEnabled(true);
         btnCampo2.setText(null);
@@ -646,8 +639,8 @@ Arquivo rank = new Arquivo();
         btnCampo8.setEnabled(true);
         btnCampo9.setText(null);
         btnCampo9.setEnabled(true);
-        vez=false;
-        vezes=0;
+        vez = false;
+        vezes = 0;
         lblVezJogador.setText(nomeJ1);
         btnCampo1.setForeground(Color.black);
         btnCampo2.setForeground(Color.black);
@@ -659,8 +652,7 @@ Arquivo rank = new Arquivo();
         btnCampo8.setForeground(Color.black);
         btnCampo9.setForeground(Color.black);
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCampo1;

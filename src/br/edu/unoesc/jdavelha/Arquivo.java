@@ -10,13 +10,29 @@ import javax.swing.JOptionPane;
 
 public class Arquivo {
 
-    private final String ARQUIVO = "C:/Dados/Jogadores.txt";
-    File file = new File(ARQUIVO);
+    //Definição do local do arquivo
+    private final String ARQUIVO = "C:/JogoDaVelha/Jogadores.txt";
+    private final String DIRETORIO = "C:/JogoDaVelha";
+    File file = new File(DIRETORIO);
+    File arquivo = new File(ARQUIVO);
 
+    //Criação de diretório e arquivo
+    public void criarDiretorio() {
+        try {
+            file.mkdir();
+            if (!arquivo.exists()) {
+                arquivo.createNewFile();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Não foi possivel criar o arquivo!");
+        }
+    }
+
+    //Método para gravar no arquivo
     public void gravarArquivo(ArrayList<Jogadores> jogador) {
         try {
-            if(!file.exists())
-                file.createNewFile();
+
+            //Gravação no arquivo
             BufferedWriter wr = new BufferedWriter(new FileWriter(ARQUIVO));
             for (int i = 0; i < jogador.size(); i++) {
                 String linha = jogador.get(i).getJogador();
@@ -29,21 +45,22 @@ public class Arquivo {
         }
     }
 
+    //Método para ler do arquivo
     public ArrayList<Jogadores> lerArquivo() {
         try {
-            if(!file.exists())
-                file.createNewFile();
+            //Leitura do arquivo
             BufferedReader leitura;
             leitura = new BufferedReader(new FileReader(ARQUIVO));
             ArrayList<Jogadores> listaLida = new ArrayList();
-            String linha=null;
-            while((linha=leitura.readLine())!=null){
+            String linha = null;
+            while ((linha = leitura.readLine()) != null) {
                 Jogadores player = new Jogadores();
                 player.setJogador(linha);
-                listaLida.add(player); 
+                listaLida.add(player);
             }
             leitura.close();
-            return (listaLida);   
+            //Retorno de arraylist
+            return (listaLida);
         } catch (Exception e) {
             throw new RuntimeException("Não foi possivel ler do arquivo!");
         }

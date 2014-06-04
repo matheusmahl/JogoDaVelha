@@ -1,16 +1,16 @@
 package br.edu.unoesc.jdavelha;
 
-public class Jogadores{
-    
-    private String jogador;
+public class Jogadores {
+
+    //Atributo de nome do jogador
+    private String nomeJogador;
 
     public String getJogador() {
-        return jogador;
+        return nomeJogador;
     }
 
     public void setJogador(String jogador) {
-        this.jogador = jogador;
+        this.nomeJogador = jogador;
     }
 
-    
 }
