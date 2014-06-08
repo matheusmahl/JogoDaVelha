@@ -65,8 +65,4 @@ public class Arquivo {
             throw new RuntimeException("Não foi possivel ler do arquivo!");
         }
     }
-    
-    public void arquivoAjuda(){
-        
-    }
 }
