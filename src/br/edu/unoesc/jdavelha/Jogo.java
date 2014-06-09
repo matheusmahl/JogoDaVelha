@@ -414,11 +414,11 @@ public class Jogo extends javax.swing.JFrame {
         btnCampo9.setEnabled(false);
         teste();
     }//GEN-LAST:event_btnCampo9ActionPerformed
-
+//Botão para limpar o tabuleiro
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         limparTabuleiro();
     }//GEN-LAST:event_btnLimparActionPerformed
-
+//Botão para limpar o ranking
     private void btnLimparRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparRankingActionPerformed
         rankJ1 = 0;
         lblRankJ1.setText("" + rankJ1);

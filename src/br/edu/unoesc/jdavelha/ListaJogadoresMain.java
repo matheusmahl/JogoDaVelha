@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ListaJogadoresMain extends javax.swing.JFrame {
-
+    //Criação de arraylist de jogadores
     private ArrayList<Jogadores> player = new ArrayList();
+    //Criação do objeto arquivo do tipo Arquivo
     Arquivo arquivo = new Arquivo();
 
     public ListaJogadoresMain() {
         initComponents();
+        //Execução do método para criar o diretório
         arquivo.criarDiretorio();
+        //Execução do metodo para ler os nomes salvos no arquivo e guardar no arrayList
         player = arquivo.lerArquivo();
+        //Método para atualizar a lista com os nomes lidos
         atualizarLista();
 
     }
@@ -165,9 +169,10 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Botão de inicio de jogo
     private void btnJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJogarActionPerformed
         try {
+            //Testes para verificar se os jogadores foram escolhidos
             if (lblJogadorSelecionado1.getText().isEmpty()) {
                 throw new Exception("Jogador 1 não selecionado!");
             }
@@ -177,7 +182,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             if (lblJogadorSelecionado1.getText().equals(lblJogadorSelecionado2.getText())) {
                 throw new Exception("Os jogadores não podem ser os mesmos!");
             }
-
+            //Inicia o frame de jogo e desativa o de seleção de jogadores
             Jogo jogar = new Jogo(lblJogadorSelecionado1.getText(), lblJogadorSelecionado2.getText());
             jogar.setVisible(true);
             this.setVisible(false);
@@ -186,7 +191,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnJogarActionPerformed
-
+//Botão de selecionar jogador 1
     private void btnSelecionarJogador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarJogador1ActionPerformed
         try {
             if (lstJogadores.getSelectedIndex() > -1) {
@@ -200,7 +205,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnSelecionarJogador1ActionPerformed
-
+//Botão para adicionar jogador
     private void btnAdicionarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarJogadorActionPerformed
 
         try {
@@ -221,7 +226,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnAdicionarJogadorActionPerformed
-
+//Botão para selecionar o Jogador 2
     private void btnSelecionarJogador2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarJogador2ActionPerformed
         try {
             if (lstJogadores.getSelectedIndex() > -1) {
@@ -235,7 +240,7 @@ public class ListaJogadoresMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnSelecionarJogador2ActionPerformed
-
+//Botão para deletar o jogador selecionado da lista
     private void btnDeletarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarJogadorActionPerformed
         try {
             if (lstJogadores.getSelectedIndex() > -1) {

@@ -19,8 +19,10 @@ public class Arquivo {
     //Criação de diretório e arquivo
     public void criarDiretorio() {
         try {
-            file.mkdir();
+            file.mkdir(); //Método para criar o diretório
+            //Teste para ver se o arquivo ja existe
             if (!arquivo.exists()) {
+                //se não existir arquivo, ele ira criar um
                 arquivo.createNewFile();
             }
         } catch (Exception e) {
@@ -31,7 +33,6 @@ public class Arquivo {
     //Método para gravar no arquivo
     public void gravarArquivo(ArrayList<Jogadores> jogador) {
         try {
-
             //Gravação no arquivo
             BufferedWriter wr = new BufferedWriter(new FileWriter(ARQUIVO));
             for (int i = 0; i < jogador.size(); i++) {
@@ -39,7 +40,7 @@ public class Arquivo {
                 wr.write(linha);
                 wr.newLine();
             }
-            wr.flush();
+            wr.flush();//Método para gravar o buffer no arquivo
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possivel gravar no arquivo!");
         }
